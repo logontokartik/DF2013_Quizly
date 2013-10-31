@@ -17,16 +17,16 @@ The above is built using Force.com Sites
 * Set the Active Site Homepage as "QuizMaster"
 * On the Site Details page, in the Visualforce Access, make sure you add QuizConSummary, QuizMaster, QuizMasterSummary, QuizmasterNoStyles Visualforce pages
 * Click on the Public Access settings and edit the object Settings
-* 	Contact Responses - Read, Create, Edit
-* 	Contact   		  - Read, Create
-	Questions 		  - Read, View All
-	Quizzes   		  - Read, View All
-	Summaries		  - Read, Create, Edit, View All
+ 	..* Contact Responses - Read, Create, Edit
+	..* Contact   		  - Read, Create
+	..* Questions 		  - Read, View All
+	..* Quizzes   		  - Read, View All
+	..* Summaries		  - Read, Create, Edit, View All
 * Apex Class Access
-	QuizConSummaryCon
-	QuizMasterCon
-	QuizMasterSummaryCon
-	QuizQuestionPlugin
+	..* QuizConSummaryCon
+	..* QuizMasterCon
+	..* QuizMasterSummaryCon
+	..* QuizQuestionPlugin
 
  
 
