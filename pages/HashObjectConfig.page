@@ -1,0 +1,79 @@
+<apex:page controller="HashObjectConfigCon">
+	<apex:sectionHeader title="Transaction Org Chart"/>
+    <head>
+    <apex:stylesheet value="{!URLFOR($Resource.Chosen, 'chosen/chosen.css')}"/>     	
+    <script type="text/javascript" src="{!URLFOR($Resource.jQueryUI, 'js/jquery-1.8.2.js')}"></script>
+    <script type="text/javascript" src="{!URLFOR($Resource.jQueryUI, 'js/jquery-1.8.2.min.js')}"></script>
+    <script type="text/javascript" src="{!URLFOR($Resource.jQueryUI, 'js/jquery-ui-1.9.0.custom.min.js')}"></script>
+    <script type="text/javascript" src="{!URLFOR($Resource.Chosen, 'chosen/chosen.jquery.min.js')}"></script>
+    
+    <script>
+    
+    	function saveSettings(){
+    		
+    		console.log('nanna');
+    		var selected = $('#fieldsSelected').val();
+    		var selectedStr = '';
+    		$.each(selected,function(s){
+    			
+    			selectedStr += selected[s] + ',';
+    			
+    		});
+    		
+    		console.log(selectedStr);
+	        saveSettingsAF(selectedStr);              
+    	
+    	}
+    	
+    
+    </script>
+    
+    </head>
+	
+	<apex:form >
+		<apex:pageMessages id="theMessages"/>
+		<apex:actionFunction name="saveSettingsAF" action="{!saveSettings}" rerender="theMessages">
+			<apex:param name="fields" value="" />
+		</apex:actionFunction>
+		<apex:pageBlock >
+			<apex:pageBlockSection >
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Choose Object:"/>
+					<apex:selectList value="{!selectedObject}" size="1" multiselect="false">
+						<apex:selectOptions value="{!allObjects}"/>
+						<apex:actionSupport event="onchange" action="{!loadFieldSets}" rerender="fieldSection"/>
+					</apex:selectList>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection id="fieldSection">
+			<apex:outputPanel rendered="{!isObjectSelected}">
+				    <script>
+	                	console.log('herehere');
+	                	$(".chosen-select").chosen({
+			              no_results_text: "No results matched",
+			              create_option: false
+			            });
+	                	
+	                	 // KVisw - Added the below code to prepopulate the Tags Chosen Control.
+			            var tags = {!selectedFields};
+			            
+			            if(tags != "none"){
+			            	var strArr =  tags.split(',');
+			            	$('.chosen-select').val(strArr).trigger("chosen:updated");
+			            }
+	                
+	                </script> 
+				    <select class="chosen-select" id="fieldsSelected" data-placeholder="Choose Fields ..." style="width:700px;" multiple="multiple">
+	                 <apex:repeat value="{!availableFields}" var="s">
+						<option value="{!s}">{!s}</option>
+					</apex:repeat>       
+	                </select>
+	                <apex:commandButton value="Save Settings" onclick="saveSettings();" rerender="theMessages"/>
+			</apex:outputPanel>
+			</apex:pageBlockSection>
+			
+		</apex:pageBlock>
+	
+	
+	</apex:form>
+</apex:page>

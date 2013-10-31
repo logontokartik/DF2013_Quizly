@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PaperCliff Service</fullName>
+    <types>
+        <members>HashObjectConfigCon</members>
+        <members>SFHashService</members>
+        <members>TestSFHashService</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>HashObjectConfig</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Hashmap__c.CommaSeparatedFields__c</members>
+        <members>Hashmap__c.ObjectName__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Hashmap__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Hashmap__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Hashmap__c-Hashmap Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Hashmap__c.All</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>Chosen</members>
+        <members>jQueryUI</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>Hashmap__c.Set_Config</members>
+        <name>WebLink</name>
+    </types>
+    <version>28.0</version>
+</Package>
